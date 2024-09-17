@@ -1,12 +1,17 @@
 import React from 'react'
-
+import { Space_Grotesk } from 'next/font/google'
 import localFont from 'next/font/local'
 import { twMerge } from 'tailwind-merge'
 
 // Font files can be colocated inside of `app`
-const CalSans = localFont({
-	src: [{ path: '../../fonts/CalSans-SemiBold.woff2' }],
-	display: 'swap'
+// const CalSans = localFont({
+// 	src: [{ path: '/fonts/CalSans-SemiBold.woff2' }],
+// 	display: 'swap'
+// })
+
+export const spaceGrotesk = Space_Grotesk({
+	subsets: ['latin'],
+	weight: ['400', '500', '600', '700']
 })
 
 export const Heading = ({
@@ -21,7 +26,7 @@ export const Heading = ({
 	return (
 		<Tag
 			className={twMerge(
-				CalSans.className,
+				spaceGrotesk.className,
 				'text-base md:text-xl lg:text-4xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary',
 				className
 			)}

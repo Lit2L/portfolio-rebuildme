@@ -2,8 +2,6 @@
 import React, { useState } from 'react'
 import { HoveredLink, Menu, MenuItem, ProductItem } from './ui/navbar-popup'
 import { cn } from '@/lib/utils'
-import { Product } from './types/products-types'
-import { motion } from 'framer-motion'
 
 export function NavbarDemo() {
 	return (

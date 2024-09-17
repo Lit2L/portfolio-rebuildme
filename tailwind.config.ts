@@ -1,6 +1,8 @@
 import type { Config } from 'tailwindcss'
-const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette')
-const svgToDataUri = require('mini-svg-data-uri')
+
+//@ts-ignore
+import { default as flattenColorPalette } from 'tailwindcss/lib/util/flattenColorPalette'
+import svgToDataUri from 'mini-svg-data-uri'
 const colors = require('tailwindcss/colors')
 
 module.exports = {
@@ -20,6 +22,31 @@ module.exports = {
 			}
 		},
 		extend: {
+			animation: {
+				moveUp: 'moveUp 1.4s ease forwards',
+				appear: 'appear 1s 1s forwards',
+				fill: 'fill 1s forwards',
+				'accordion-down': 'accordion-down 0.2s ease-out',
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'marquee-horizontal': 'marquee-x var(--duration) infinite linear',
+				'marquee-vertical': 'marquee-y var(--duration) linear infinite',
+				'bg-position': 'bg-position 3s infinite alternate',
+				'pop-blob': 'pop-blob 4s infinite',
+				'flip-words': 'flip-words 8s infinite',
+				fadeIn: 'fadeIn 0.5s ease-in',
+				'blink-red': 'blink-red 2s infinite linear',
+				sparkle: 'sparkle 2s ease-in-out infinite',
+				meteor: 'meteor var(--duration) var(--delay) ease-in-out infinite',
+				trail: 'trail var(--duration) linear infinite',
+				led: 'led 100ms ease-in-out',
+				shine: 'shine 8s ease-in-out infinite'
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				serif: ['Merriweather', 'serif'],
+				spaceGrotesk: ['Space Grotesk', 'monospace']
+			},
+
 			backgroundImage: {
 				striped:
 					'repeating-linear-gradient(45deg, #3B3A3D, #3B3A3D 5px, transparent 5px, transparent 20px)',
@@ -129,6 +156,18 @@ module.exports = {
 				150: '1.5'
 			},
 			keyframes: {
+				moveUp: {
+					'0%': { transform: 'translateY(5%)', opacity: '0' },
+					'100%': { transform: 'translateY(0%)', opacity: '1' }
+				},
+				appear: {
+					from: { opacity: '0' },
+					to: { opacity: '1' }
+				},
+				shine: {
+					from: { backgroundPosition: '200% 0' },
+					to: { backgroundPosition: '-200% 0' }
+				},
 				fill: {
 					'0%': { height: '0%' },
 					'100%': { height: 'var(--progress-height)' }
@@ -157,6 +196,7 @@ module.exports = {
 					from: { transform: 'translateY(0)' },
 					to: { transform: 'translateY(calc(-100% - var(--gap)))' }
 				},
+
 				'bg-position': {
 					'0%': { backgroundPosition: '0% 50%' },
 					'100%': { backgroundPosition: '100% 50%' }
@@ -231,22 +271,7 @@ module.exports = {
 					'100%': { fill: 'currentColor', brightness: '1' }
 				}
 			},
-			animation: {
-				fill: 'fill 1s forwards',
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
-				'marquee-horizontal': 'marquee-x var(--duration) infinite linear',
-				'marquee-vertical': 'marquee-y var(--duration) linear infinite',
-				'bg-position': 'bg-position 3s infinite alternate',
-				'pop-blob': 'pop-blob 4s infinite',
-				'flip-words': 'flip-words 8s infinite',
-				fadeIn: 'fadeIn 0.5s ease-in',
-				'blink-red': 'blink-red 2s infinite linear',
-				sparkle: 'sparkle 2s ease-in-out infinite',
-				meteor: 'meteor var(--duration) var(--delay) ease-in-out infinite',
-				trail: 'trail var(--duration) linear infinite',
-				led: 'led 100ms ease-in-out'
-			},
+
 			transitionTimingFunction: {
 				slow: 'cubic-bezier(.405, 0, .025, 1)',
 				'minor-spring': 'cubic-bezier(0.76,0.34,0.38,1.64)'
@@ -264,7 +289,12 @@ module.exports = {
 	plugins: [
 		require('tailwindcss-animate'),
 		addVariablesForColors,
-		function ({ matchUtilities, theme }: any) {
+		function ({ matchUtilities, theme, addUtilities }: any) {
+			addUtilities({
+				'.border-border': {
+					borderColor: theme('colors.border')
+				}
+			})
 			matchUtilities(
 				{
 					'bg-grid': (value: any) => ({
