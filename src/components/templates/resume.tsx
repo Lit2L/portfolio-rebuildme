@@ -24,6 +24,7 @@ export function Resume() {
 							alt='hero'
 							height={720}
 							width={1400}
+							priority
 							className='mx-auto rounded-2xl object-cover h-full object-left-top'
 							draggable={false}
 						/>

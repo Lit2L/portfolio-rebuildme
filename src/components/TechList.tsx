@@ -8,15 +8,19 @@ import {
 	SiPostgresql,
 	SiPrisma,
 	SiReact,
+	SiSnowflake,
 	SiTailwindcss,
 	SiTypescript
 } from 'react-icons/si'
-
+import { FaAws, FaGit } from 'react-icons/fa'
+import { AiOutlinePython } from 'react-icons/ai'
 import { AnimatedText } from '@/components/animated-text'
+import { BsDatabaseDown } from 'react-icons/bs'
+import { LuWarehouse } from 'react-icons/lu'
+import { GoGraph } from 'react-icons/go'
 
 import { Label } from './ui/label'
 import { IoLogoFigma } from 'react-icons/io5'
-import { IconBrandNextjs } from '@tabler/icons-react'
 
 export const TechList = () => {
 	return (
@@ -48,6 +52,10 @@ export const TechList = () => {
 					className='text-dark-300 flex flex-wrap gap-6'
 				>
 					<div className='bubble'>
+						<BsDatabaseDown size={28} title='Database' />
+						<Label className='text-[10px]'>Database</Label>
+					</div>
+					<div className='bubble'>
 						<SiPostgresql size={28} title='PostgreSQL' />
 						<Label className='text-[10px]'>P-SQL</Label>
 					</div>
@@ -55,34 +63,39 @@ export const TechList = () => {
 						<SiMicrosoftsqlserver size={28} title='Sql-Server' />
 						<Label className='text-[10px]'>Sql-Server</Label>
 					</div>
+					<div className='bubble'>
+						<FaAws size={28} title='AWS Services' />
+						<Label className='text-[10px]'>Cloud</Label>
+					</div>
+					<div className='bubble'>
+						<FaGit size={28} title='Git' />
+						<Label className='text-[10px]'>Git</Label>
+					</div>
 
 					<div className='bubble'>
-						<SiNextdotjs size={28} title='Nextjs' />
-						<Label className='text-[10px]'>NextJs</Label>
+						<AiOutlinePython size={28} title='Python' />
+						<Label className='text-[10px]'>Python</Label>
 					</div>
 					<div className='bubble'>
 						<SiTypescript size={28} title='TypeScript' />
 						<Label className='text-[10px]'>TSX</Label>
 					</div>
+
 					<div className='bubble'>
-						<SiReact size={28} title='React.js' />
-						<Label className='text-[10px]'>P-SQL</Label>
+						<LuWarehouse size={28} title='Data Warehouse' />
+						<Label className='text-[10px]'>Data Warehouse</Label>
 					</div>
-					<div className='bubble'>
-						<SiNextdotjs size={28} title='Next.js' />
-						<Label className='text-[10px]'>P-SQL</Label>
-					</div>
-					<div className='bubble'>
+					{/* <div className='bubble'>
 						<SiTailwindcss size={28} title='TailwindCSS' />
 						<Label className='text-[10px]'>P-SQL</Label>
-					</div>
+					</div> */}
 					<div className='bubble'>
 						<SiPrisma size={28} title='Prisma' />
 						<Label className='text-[10px]'>Prisma ORM</Label>
 					</div>
 					<div className='bubble'>
-						<IoLogoFigma size={28} title='Figma' />
-						<Label className='text-[10px]'>P-SQL</Label>
+						<GoGraph size={28} title='Data Visualization' />
+						<Label className='text-[10px]'>Data Visualization</Label>
 					</div>
 				</motion.div>
 			</motion.section>

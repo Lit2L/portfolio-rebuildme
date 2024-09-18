@@ -20,9 +20,8 @@ const workSans = Work_Sans({
 })
 
 export const metadata: Metadata = {
-	title: 'John Doe - Developer',
-	description:
-		'John Doe is a developer, writer and speaker. He is a digital nomad and travels around the world while working remotely.'
+	title: 'Larry Ly - Data Engineer, Application Developer',
+	description: 'Larry Ly is a developer, data analyst and overall problem solver/answer finder.'
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

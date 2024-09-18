@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import { memo, useMemo } from 'react'
 import { Product } from '@/components/types/products-types'
-import { products } from '@/components/constants/project-constants'
+import { products } from '@/constants/project-constants'
 import Image from 'next/image'
 import { Paragraph } from './Paragraph'
 
