@@ -22,20 +22,20 @@ export const Beam = () => {
 			viewBox='0 0 156 63'
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'
-			className='absolute top-0 left-0 ml-24 mt-8'
+			className='absolute top-0 left-0 ml-24 mt-8 w-1/2 h-full'
 		>
 			<path
 				d='M31 .5h32M0 .5h32m30 31h32m-1 0h32m-1 31h32M62.5 32V0m62 63V31'
 				stroke='url(#grad1)'
-				strokeWidth={1.5}
+				strokeWidth={0.5}
 			/>
 			<defs>
 				<motion.linearGradient
 					variants={{
 						initial: {
-							x1: '40%',
-							x2: '50%',
-							y1: '160%',
+							x1: '0%',
+							x2: '40%',
+							y1: '100%',
 							y2: '180%'
 						},
 						animate: {

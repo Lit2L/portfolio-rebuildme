@@ -61,7 +61,7 @@ export const SectionHeader = forwardRef<HTMLElement, SectionHeaderProps>(
 		<motion.header
 			ref={ref}
 			{...props}
-			className='flex items-center'
+			className='flex items-center py-12'
 			variants={parentVariants}
 			initial='hidden'
 			whileInView='visible'

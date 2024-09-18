@@ -6,7 +6,7 @@ import svgToDataUri from 'mini-svg-data-uri'
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-	darkMode: ['class'],
+	darkMode: 'class',
 	content: [
 		'./src/pages/**/*.{js,ts,jsx,tsx,mdx}',
 		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -22,37 +22,6 @@ module.exports = {
 			}
 		},
 		extend: {
-			animation: {
-				moveUp: 'moveUp 1.4s ease forwards',
-				appear: 'appear 1s 1s forwards',
-				fill: 'fill 1s forwards',
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
-				'marquee-horizontal': 'marquee-x var(--duration) infinite linear',
-				'marquee-vertical': 'marquee-y var(--duration) linear infinite',
-				'bg-position': 'bg-position 3s infinite alternate',
-				'pop-blob': 'pop-blob 4s infinite',
-				'flip-words': 'flip-words 8s infinite',
-				fadeIn: 'fadeIn 0.5s ease-in',
-				'blink-red': 'blink-red 2s infinite linear',
-				sparkle: 'sparkle 2s ease-in-out infinite',
-				meteor: 'meteor var(--duration) var(--delay) ease-in-out infinite',
-				trail: 'trail var(--duration) linear infinite',
-				led: 'led 100ms ease-in-out',
-				shine: 'shine 8s ease-in-out infinite'
-			},
-			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				serif: ['Merriweather', 'serif'],
-				spaceGrotesk: ['Space Grotesk', 'monospace']
-			},
-
-			backgroundImage: {
-				striped:
-					'repeating-linear-gradient(45deg, #3B3A3D, #3B3A3D 5px, transparent 5px, transparent 20px)',
-				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
-			},
 			colors: {
 				main: '#88aaee',
 				mainAccent: '#4d80e6', // not needed for shadcn components
@@ -120,6 +89,37 @@ module.exports = {
 					'3': 'hsl(var(--chart-3))',
 					'4': 'hsl(var(--chart-4))',
 					'5': 'hsl(var(--chart-5))'
+				},
+				animation: {
+					moveUp: 'moveUp 1.4s ease forwards',
+					appear: 'appear 1s 1s forwards',
+					fill: 'fill 1s forwards',
+					'accordion-down': 'accordion-down 0.2s ease-out',
+					'accordion-up': 'accordion-up 0.2s ease-out',
+					'marquee-horizontal': 'marquee-x var(--duration) infinite linear',
+					'marquee-vertical': 'marquee-y var(--duration) linear infinite',
+					'bg-position': 'bg-position 3s infinite alternate',
+					'pop-blob': 'pop-blob 4s infinite',
+					'flip-words': 'flip-words 8s infinite',
+					fadeIn: 'fadeIn 0.5s ease-in',
+					'blink-red': 'blink-red 2s infinite linear',
+					sparkle: 'sparkle 2s ease-in-out infinite',
+					meteor: 'meteor var(--duration) var(--delay) ease-in-out infinite',
+					trail: 'trail var(--duration) linear infinite',
+					led: 'led 100ms ease-in-out',
+					shine: 'shine 8s ease-in-out infinite'
+				},
+				fontFamily: {
+					sans: ['Inter', 'sans-serif'],
+					serif: ['Merriweather', 'serif'],
+					spaceGrotesk: ['Space Grotesk', 'monospace']
+				},
+
+				backgroundImage: {
+					striped:
+						'repeating-linear-gradient(45deg, #3B3A3D, #3B3A3D 5px, transparent 5px, transparent 20px)',
+					'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+					'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
 				}
 			},
 			borderRadius: {
@@ -292,7 +292,7 @@ module.exports = {
 		function ({ matchUtilities, theme, addUtilities }: any) {
 			addUtilities({
 				'.border-border': {
-					borderColor: theme('colors.border')
+					border: theme('colors.border')
 				}
 			})
 			matchUtilities(

@@ -3,6 +3,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
+import { TextureButton } from './texture-button'
 
 const transition = {
 	type: 'spring',
@@ -25,20 +26,20 @@ export const MenuItem = ({
 	children?: React.ReactNode
 }) => {
 	return (
-		<div
+		<TextureButton
 			onMouseEnter={() => setActive(item)}
-			className='border-border dark:border-darkBorder shadow-light dark:shadow-dark rounded-base border-2 bg-sky-900 px-3 py-1 transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:hover:shadow-none cursor-pointer flex items-center justify-center z-50'
+			className='border-border shadow-light dark:shadow-dark rounded-base border-2 bg-sky-900 px-1 py-1 transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:hover:shadow-none cursor-pointer flex items-center justify-center z-50'
 		>
 			<motion.p
 				transition={{ duration: 0.5 }}
-				className='cursor-pointer text-white font-bold hover:opacity-[0.9] dark:text-white'
+				className='cursor-pointer text-white font-bold hover:opacity-[0.9] dark:text-slate-800'
 			>
 				{item}
 			</motion.p>
 			{active !== null && (
 				<motion.div
 					initial={{ opacity: 0, scale: 0.85, x: 0, y: 0 }}
-					animate={{ opacity: 1, scale: 1, x: 0, y: -10 }}
+					animate={{ opacity: 1, scale: 1, x: 0, y: 30 }}
 					transition={transition}
 				>
 					{active === item && (
@@ -59,7 +60,7 @@ export const MenuItem = ({
 					)}
 				</motion.div>
 			)}
-		</div>
+		</TextureButton>
 	)
 }
 

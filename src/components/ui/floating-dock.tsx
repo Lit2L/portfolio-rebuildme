@@ -31,7 +31,7 @@ export const FloatingDock = ({
 	return (
 		<>
 			<FloatingDockDesktop items={items} className={desktopClassName} />
-			<FloatingDockMobile items={items} className={mobileClassName} />
+			{/* <FloatingDockMobile items={items} className={mobileClassName} /> */}
 		</>
 	)
 }
@@ -45,12 +45,12 @@ const FloatingDockMobile = ({
 }) => {
 	const [open, setOpen] = useState(false)
 	return (
-		<div className={cn('relative block z-10', className)}>
+		<div className={cn('relative block z-10 bg-gray-500', className)}>
 			<AnimatePresence>
 				{open && (
 					<motion.div
 						layoutId='nav'
-						className='absolute bottom-full mb-2 inset-x-0 flex flex-col gap-2 z-10'
+						className='absolute bottom-full mb-2 inset-x-0 flex flex-col gap-2 z-10 '
 					>
 						{items.map((item, idx) => (
 							<motion.div
@@ -81,7 +81,7 @@ const FloatingDockMobile = ({
 					</motion.div>
 				)}
 			</AnimatePresence>
-			<ModeToggle />
+
 			<button
 				onClick={() => setOpen(!open)}
 				className='h-10 w-10 rounded-full bg-dark-500 dark:bg-neutral-800 flex items-center justify-center  border-white '
@@ -112,6 +112,7 @@ const FloatingDockDesktop = ({
 			{items.map((item) => (
 				<IconContainer mouseX={mouseX} key={item.title} {...item} />
 			))}
+			<ModeToggle />
 		</motion.div>
 	)
 }

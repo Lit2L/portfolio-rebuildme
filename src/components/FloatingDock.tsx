@@ -10,6 +10,8 @@ import {
 import Image from 'next/image'
 import { LinkedInLogoIcon } from '@radix-ui/react-icons'
 import { GalleryThumbnails, SquareUser, TrophyIcon } from 'lucide-react'
+import { ModeToggle } from './ui/mode-toggle'
+import { TextureButton } from './ui/texture-button'
 
 export function FloatingNavDock() {
 	const links = [
@@ -47,9 +49,9 @@ export function FloatingNavDock() {
 		}
 	]
 	return (
-		<div className='flex items-center justify-center h-[5rem] fixed bg-darkBg/50 bottom-12 w-full'>
+		<div className='flex items-center justify-center fixed bottom-12 w-full'>
 			<FloatingDock
-				mobileClassName='translate-y-2 z-10' // only for demo, remove for production
+				mobileClassName='z-10' // only for demo, remove for production
 				items={links}
 			/>
 		</div>

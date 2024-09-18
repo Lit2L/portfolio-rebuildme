@@ -9,7 +9,7 @@ import Image from 'next/image'
 
 import { TechList } from '@/components/TechList'
 import { Profile } from '@/components/Profile'
-import { NavbarDemo } from '@/components/NavbarPopup'
+import { MenuPopup } from '@/components/MenuPopup'
 import { GridBeam } from '../ui/grid-beam'
 
 const MotionImage = motion(Image)
@@ -21,16 +21,12 @@ export const Hero = () => {
 	if (!mounted) return null
 
 	return (
-		// <header
-		// 	id='intro'
-		// 	className='pt-0 pb-24 shadow-[inset_0_-40px_15px_-10px_#ededed] transition duration-300 ease-in-out dark:shadow-[inset_0_-40px_15px_-10px_#171717] md:bg-auto w-full border-4 h-[400px] dark:bg-grid-white/[0.05] bg-grid-black/[0.07]'
-		// >
 		<header
 			id='intro'
-			className='pt-0 pb-24 shadow-[inset_0_-40px_15px_-10px_#ededed] transition duration-300 ease-in-out dark:shadow-[inset_0_-40px_15px_-10px_#171717] md:bg-auto w-full border-4 h-[400px] '
+			className='py-24 h-[100vh] shadow-[inset_0_-40px_15px_-10px_#ededed] transition duration-300 ease-in-out dark:shadow-[inset_0_-40px_15px_-10px_#171717] md:bg-auto w-full'
 		>
-			<GridBeam className='sm:pl-16 pt-28 pl-4 flex items-start justify-start'>
-				<div className='flex md:flex-row flex-col w-full md:justify-between items-center'>
+			<GridBeam>
+				<div className='flex md:flex-row flex-col w-full lg:justify-between items-center'>
 					<motion.section
 						variants={{
 							hidden: { transition: { staggerChildren: 0.25, delayChildren: 0.25 } },
@@ -40,7 +36,7 @@ export const Hero = () => {
 						whileInView='visible'
 						exit='hidden'
 						viewport={{ once: true }}
-						className='relative container mb-12 flex flex-col space-y-6 w-full lg:max-w-[50%]'
+						className='relative container mb-12 flex flex-col items-center border-4 space-y-6 w-full lg:max-w-[45%]'
 					>
 						<AnimatePresence>
 							<article className=''>
@@ -80,22 +76,22 @@ export const Hero = () => {
 						whileInView='visible'
 						exit='hidden'
 						viewport={{ once: true }}
-						className='relative container flex flex-col lg:max-w-[50%]'
+						className='relative container flex flex-col lg:max-w-[55%]'
 					>
 						{' '}
-						<div className='border-border dark:border-darkBorder shadow-light dark:shadow-dark rounded-base border-2 bg-sky-900 p-3 transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:hover:shadow-none rounded-lg z-10 hidden md:block'>
+						{/* <div className=' dark:border-darkBorder shadow-light dark:shadow-dark rounded-base border-2 bg-sky-900 p-3 transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:hover:shadow-none rounded-lg z-10 hidden lg:block'>
 							<motion.div
 								style={{
 									boxShadow:
 										'0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003'
 								}}
 								className='mx-auto h-[24rem] w-full  border-[#6C6C6C] p-2 md:p-6 bg-[#f7f7f7]/90 rounded-[30px] shadow-2xl'
-							>
-								<div className='h-full w-full rounded-2xl dark:bg-zinc-900 md:rounded-2xl md:p-4'>
-									<NavbarDemo />
-								</div>
-							</motion.div>
-						</div>
+							> */}
+						{/* <div className='h-full w-full border-4 rounded-2xl dark:bg-zinc-900 md:rounded-2xl md:p-4'> */}
+						<MenuPopup />
+						{/* </div>
+							</motion.div> */}
+						{/* </div> */}
 					</motion.section>
 				</div>
 			</GridBeam>

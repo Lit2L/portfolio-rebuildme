@@ -6,6 +6,8 @@ import { Footer } from '@/components/Footer'
 import { TailwindIndicator } from '@/components/TailwindIndicator'
 import { FloatingNavDock } from '@/components/FloatingDock'
 import DatetimePickerDemo from '@/components/DateTimeWidget'
+import { Providers } from '@/components/Providers'
+import Hydrate from '@/components/Hydrate'
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -26,20 +28,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang='en'>
-			<body
-				className={twMerge(
-					inter.className,
-					workSans.className,
-					'antialiased min-h-screen w-full relative max-w-full overflow-x-hidden bg-background'
-				)}
-			>
-				<DatetimePickerDemo />
-				{/* <Sidebar /> */}``
-				{children}
-				<FloatingNavDock />
-				<TailwindIndicator />
-				<Footer />
-			</body>
+			<Hydrate>
+				<Providers>
+					{children}
+					<FloatingNavDock />
+					<TailwindIndicator />
+					<Footer />
+				</Providers>
+			</Hydrate>
 		</html>
 	)
 }
